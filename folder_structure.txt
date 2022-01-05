@@ -1,0 +1,42 @@
+.
+├─ README.md
+├─ index.html
+├─ webpack.config.js
+├─ package.json
+└─ src
+   ├─ main.js
+   ├─ App.vue
+   ├─ components (컴포넌트)
+   │  ├─ common
+   │  └─ ...
+   ├─ routes (라우터)
+   │  ├─ index.js
+   │  └─ routes.js
+   ├─ views (라우터 페이지)
+   │  ├─ MainView.vue
+   │  └─ ...
+   ├─ store (상태 관리)
+   │  ├─ auth
+   │  ├─ index.js
+   │  └─ ...
+   ├─ api (api 함수)
+   │  ├─ index.js
+   │  ├─ users.js
+   │  └─ ...
+   ├─ utils (필터 등의 유틸리티 함수)
+   │  ├─ filters.js
+   │  ├─ bus.js
+   │  └─ ...
+   ├─ mixins (믹스인)
+   │  ├─ index.js
+   │  └─ ...
+   ├─ plugins (플러그인)
+   │  ├─ ChartPlugin.js
+   │  └─ ...
+   ├─ translations (다국어)
+   │  ├─ index.js
+   │  ├─ en.json
+   │  └─ ...
+   ├─ images (이미지)
+   ├─ fonts (폰트)
+   └─ assets (기타 자원)
