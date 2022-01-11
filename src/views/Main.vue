@@ -1,30 +1,52 @@
 <template>
-<div class="form">
-  <el-row class="center">
+<div class="wrap">
+  <div id="header">
+    <main-header />
+  </div>
+  <div id="content">
     <el-row>
-      <el-col>
-        <span>vue-diary</span>
+      <el-col :span="10">
+        <div class="bg-purple-dark">
+          test
+        </div>
+      </el-col>
+      <el-col :span="14">
+        <div class="bg-purple-light">
+          test
+        </div>
       </el-col>
     </el-row>
-    
-    <el-row>
-     <el-input label="사용자" placeholder="사용자 이름" v-model="name" ></el-input>
-    </el-row>
-
-    <el-row>   <!--로그인 버튼-->
-      <el-button type="primary" size="medium">Sign In</el-button>
-    </el-row>
-
-  </el-row>
+  </div>
 </div>
 </template>
 
 <script>
-export default {
+import MainHeader from '@/components/common/MainHeader.vue'
 
+export default {
+  name: 'main',
+  components: {
+    MainHeader
+  }
 }
 </script>
 
 <style scoped>
-  
+  .el-row {
+    margin-bottom: 20px;
+  }
+  .el-col {
+    border-radius: 4px;
+    padding: 5px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+  .row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
+  }
 </style>
