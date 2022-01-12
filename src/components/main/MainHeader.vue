@@ -1,22 +1,21 @@
 <template>
-  <header>
-    <el-row>
-      <el-col :span="8">
-        <img src="@/assets/title_logo.png" class="title-img">
-      </el-col>
-      <el-col :span="8">
-        <div class="select-date">
-          <el-date-picker
+  <div class="header">
+    <div class="logo">
+      <img src="@/assets/title_logo.png" class="title-img">
+    </div>
+    <div class="header-menu">
+      <el-date-picker
             v-model="dataValue"
             type="daterange"
             range-separator="~"
             start-placeholder="체크인"
             end-placeholder="체크아웃">
           </el-date-picker>
-        </div>
-      </el-col>
-    </el-row>
-  </header>
+    </div>
+    <div class="user-menu">
+      
+    </div>
+  </div>
 </template>
 
 <script>
@@ -31,7 +30,7 @@
 </script>
 
 <style scoped>
-  header {
+  .header {
     padding: 10px;
     margin-bottom: 15px;
   }
@@ -39,7 +38,18 @@
     text-align: center;
     margin-top: 10px;
   }
+  .logo, .header-menu, .user-menu {
+    width: 33%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .header-menu {
+    text-align: center;
+  }
+  .user-menu {
+    text-align: right;
+  }
   .title-img {
-    width: 20%;
+    width: 150px;
   }
 </style>

@@ -1,14 +1,10 @@
 <template>
 <div>
-
-  <div id="header">
-    <main-header />
-  </div>
+  <main-header />
 
   <div id="content">
-    <el-row>
-      <el-col :span="10">
-        <el-row v-for="(o) in 4" :key="o">
+    <div class="list">
+      <el-row v-for="(o) in 4" :key="o">
           <el-col>
             <el-card>
               <div class="card-item">
@@ -21,18 +17,17 @@
             </el-card>
           </el-col>
         </el-row>
-      </el-col>
-      <el-col :span="14" class="map">
-        MAP
-      </el-col>
-    </el-row>
+    </div>
+    <div class="map">
+      map
+    </div>
   </div>
   
 </div>
 </template>
 
 <script>
-import MainHeader from '@/components/common/MainHeader.vue'
+import MainHeader from '@/components/main/MainHeader.vue'
 
 export default {
   name: 'main',
@@ -76,11 +71,16 @@ export default {
     padding: 5px;
     float: right;
   }
-  .map {
-    height: 100vh;
-    text-align: center;
+  .list {
+    height: 590px;
+    width: 40%;
+    float: left;
+    overflow: auto;
   }
-  .header {
-    width: 100%;
+  .map {
+    height: 590px;
+    width: 60%;
+    float: right;
+    text-align: center;
   }
 </style>
