@@ -2,11 +2,10 @@
   <header>
     <el-row>
       <el-col :span="8">
-        <h2>airbnb</h2>
+        <img src="@/assets/title_logo.png" class="title-img">
       </el-col>
       <el-col :span="8">
         <div class="select-date">
-          <p>날짜선택</p>
           <el-date-picker
             v-model="dataValue"
             type="daterange"
@@ -33,11 +32,14 @@
 
 <style scoped>
   header {
-    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
   }
   .select-date {
     text-align: center;
+    margin-top: 10px;
+  }
+  .title-img {
+    width: 20%;
   }
 </style>

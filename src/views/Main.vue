@@ -1,8 +1,10 @@
 <template>
 <div>
+
   <div id="header">
     <main-header />
   </div>
+
   <div id="content">
     <el-row>
       <el-col :span="10">
@@ -20,11 +22,12 @@
           </el-col>
         </el-row>
       </el-col>
-      <el-col :span="14">
+      <el-col :span="14" class="map">
         MAP
       </el-col>
     </el-row>
   </div>
+  
 </div>
 </template>
 
@@ -66,14 +69,18 @@ export default {
     font-size: 15px;
     color: #999;
   }
-  
   .bottom {
     line-height: 15px;
   }
-
   .button {
     padding: 5px;
     float: right;
   }
-
+  .map {
+    height: 100vh;
+    text-align: center;
+  }
+  .header {
+    width: 100%;
+  }
 </style>
