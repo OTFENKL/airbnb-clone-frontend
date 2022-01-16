@@ -13,7 +13,10 @@
           </el-date-picker>
     </div>
     <div class="user-menu">
-      
+      <div>
+        <font-awesome-icon icon="bars" />
+        <font-awesome-icon icon="user-circle" />
+      </div>
     </div>
   </div>
 </template>
@@ -32,7 +35,6 @@
 <style scoped>
   .header {
     padding: 10px;
-    margin-bottom: 15px;
   }
   .select-date {
     text-align: center;

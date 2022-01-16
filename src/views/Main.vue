@@ -2,21 +2,9 @@
 <div>
   <main-header />
 
-  <div id="content">
+  <div class="content">
     <div class="list">
-      <el-row v-for="(o) in 4" :key="o">
-          <el-col>
-            <el-card>
-              <div class="card-item">
-                <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png">
-                <div class="bottom">
-                  <time class="time">{{ currentDate }}</time>
-                  <el-button type="primary" class="button">Reservation</el-button>
-                </div>
-              </div>
-            </el-card>
-          </el-col>
-        </el-row>
+      <main-body-list />
     </div>
     <div class="map">
       map
@@ -28,21 +16,29 @@
 
 <script>
 import MainHeader from '@/components/main/MainHeader.vue'
+import MainBodyList from '@/components/main/MainBodyList.vue'
 
 export default {
   name: 'main',
   components: {
-    MainHeader
+    MainHeader,
+    MainBodyList
   },
   data() {
     return {
-      currentDate: new Date()
     }
   }
 }
 </script>
 
 <style scoped>
+  .list {
+    width: 55%;
+    position: absolute;
+    height: 100%;
+    float: left;
+    overflow: auto;
+  }
   .el-row {
     margin-bottom: 20px;
   }
@@ -71,15 +67,8 @@ export default {
     padding: 5px;
     float: right;
   }
-  .list {
-    height: 590px;
-    width: 40%;
-    float: left;
-    overflow: auto;
-  }
   .map {
-    height: 590px;
-    width: 60%;
+    width: 45%;
     float: right;
     text-align: center;
   }
