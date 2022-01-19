@@ -1,6 +1,6 @@
 <template>
-  <div class="content">
-    <el-row v-for="(o) in 4" :key="o">
+  <div>
+    <el-row v-for="(o) in 8" :key="o">
       <el-col>
         <el-card>
           <el-row>
@@ -25,6 +25,7 @@
         </el-card>
       </el-col>
     </el-row>
+    <el-pagination class="pagination" layout="prev, pager, next" :total="1000"></el-pagination>
   </div>
 </template>
 
@@ -47,11 +48,6 @@
 </script>
 
 <style scoped>
-  .select-date {
-    text-align: center;
-    margin-top: 10px;
-  }
-
   .el-carousel__item h3 {
     color: #475669;
     font-size: 14px;
@@ -66,6 +62,11 @@
 
   .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
   }
 
   .description {

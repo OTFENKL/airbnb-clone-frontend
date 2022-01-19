@@ -1,14 +1,22 @@
 <template>
 <div>
-  <main-header />
+  <div class="head">
+    <main-header />
+  </div>
 
   <div class="content">
-    <div class="list">
-      <main-body-list />
-    </div>
-    <div class="map">
-      map
-    </div>
+    <el-row>
+      <el-col :span="12">
+        <div class="list">
+          <main-body-list />
+        </div>
+      </el-col>
+      <el-col :span="12">
+        <div class="map">
+          <main-body-map />
+        </div>
+      </el-col>
+    </el-row>
   </div>
   
 </div>
@@ -17,12 +25,14 @@
 <script>
 import MainHeader from '@/components/main/MainHeader.vue'
 import MainBodyList from '@/components/main/MainBodyList.vue'
+import MainBodyMap from '@/components/main/MainBodyMap.vue'
 
 export default {
   name: 'main',
   components: {
     MainHeader,
-    MainBodyList
+    MainBodyList,
+    MainBodyMap
   },
   data() {
     return {
@@ -32,12 +42,22 @@ export default {
 </script>
 
 <style scoped>
+  .head {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 1000;
+  }
+  .content {
+    padding-top: 100px;
+  }
   .list {
-    width: 55%;
-    position: absolute;
+    width: 100%;
     height: 100%;
-    float: left;
-    overflow: auto;
+  }
+  .map {
+    position: fixed;
   }
   .el-row {
     margin-bottom: 20px;
@@ -66,10 +86,5 @@ export default {
   .button {
     padding: 5px;
     float: right;
-  }
-  .map {
-    width: 45%;
-    float: right;
-    text-align: center;
   }
 </style>

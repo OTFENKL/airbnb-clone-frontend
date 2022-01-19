@@ -35,6 +35,7 @@
 <style scoped>
   .header {
     padding: 10px;
+    background-color: white;
   }
   .select-date {
     text-align: center;

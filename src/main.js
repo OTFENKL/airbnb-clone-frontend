@@ -13,7 +13,7 @@ library.add(fas);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.config.productionTip = false;
-Vue.use(Element, { size: 'small', zIndex: 3000 }, {locale});
+Vue.use(Element, {locale});
 
 new Vue({
   router,
