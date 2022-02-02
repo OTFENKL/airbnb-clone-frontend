@@ -4,7 +4,7 @@
       <el-col>
         <el-card>
           <el-row>
-            <el-col :span="12">
+            <el-col :span="9">
               <div class="card-item">
                 <el-carousel trigger="click" height="200px" :autoplay="false">
                   <el-carousel-item v-for='image in roomImages' :key='image'>
@@ -13,7 +13,7 @@
                 </el-carousel>
               </div>
             </el-col>
-            <el-col :span="12">
+            <el-col :span="15">
               <div class="description">
                 <span class="simple_desc small">광화문/경복궁의 전원주택 전체</span>
                 <span class="title label">New Open [한옥독채]서촌, 경복궁 인근 포근한 한옥 '서촌 아지트'</span>
@@ -25,7 +25,7 @@
         </el-card>
       </el-col>
     </el-row>
-    <el-pagination class="pagination" layout="prev, pager, next" :total="1000"></el-pagination>
+    <el-pagination class="pagination" layout="prev, pager, next" :total="pagination.total" :page-size="pagination.limit"></el-pagination>
   </div>
 </template>
 
@@ -41,7 +41,12 @@
           require(`@/assets/rooms/image2.png`),
           require(`@/assets/rooms/image3.png`),
           require(`@/assets/rooms/image4.png`),
-        ]
+        ],
+        pagination: {
+          total: 8,
+          page: 1,
+          limit: 5
+        }
       }
     }
   }

@@ -5,12 +5,12 @@
     </div>
     <div class="header-menu">
       <el-date-picker
-            v-model="dataValue"
-            type="daterange"
-            range-separator="~"
-            start-placeholder="체크인"
-            end-placeholder="체크아웃">
-          </el-date-picker>
+        v-model="dataValue"
+        type="daterange"
+        range-separator="~"
+        start-placeholder="체크인"
+        end-placeholder="체크아웃">
+      </el-date-picker>
     </div>
     <div class="user-menu">
       <div>

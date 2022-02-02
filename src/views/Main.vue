@@ -1,38 +1,41 @@
 <template>
-<div>
-  <div class="head">
-    <main-header />
-  </div>
+  <div>
+    <div class="head">
+      <main-header />
+      <main-options />
+    </div>
 
-  <div class="content">
-    <el-row>
-      <el-col :span="12">
-        <div class="list">
-          <main-body-list />
-        </div>
-      </el-col>
-      <el-col :span="12">
-        <div class="map">
-          <main-body-map />
-        </div>
-      </el-col>
-    </el-row>
+    <div class="content">
+      <el-row>
+        <el-col :span="14">
+          <div class="list">
+            <main-body-list />
+          </div>
+        </el-col>
+        <el-col :span="10">
+          <div class="map">
+            <main-body-map />
+          </div>
+        </el-col>
+      </el-row>
+    </div>
   </div>
-  
-</div>
 </template>
 
 <script>
 import MainHeader from '@/components/main/MainHeader.vue'
 import MainBodyList from '@/components/main/MainBodyList.vue'
 import MainBodyMap from '@/components/main/MainBodyMap.vue'
+import MainOptions from '@/components/main/MainOptions.vue'
 
 export default {
   name: 'main',
   components: {
     MainHeader,
     MainBodyList,
-    MainBodyMap
+    MainBodyMap,
+    MainOptions,
+    MainOptions
   },
   data() {
     return {
@@ -46,11 +49,11 @@ export default {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 100px;
+    height: 80px;
     z-index: 1000;
   }
   .content {
-    padding-top: 100px;
+    padding-top: 140px;
   }
   .list {
     width: 100%;
