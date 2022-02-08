@@ -1,9 +1,8 @@
 <template>
   <div>
-    <div class="head">
-      <main-header />
+    <div class="header">
+      <main-header @searchDialog="showSearchDialog" />
     </div>
-
     <div class="content">
       <el-row>
         <el-col :span="14">
@@ -17,33 +16,53 @@
         </el-col>
       </el-row>
     </div>
+
+    <el-dialog
+      title="Tips"
+      :visible.sync="dialogVisible"
+      width="30%"
+      :before-close="handleClose">
+      <span>This is a message</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogVisible = false">Confirm</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import MainHeader from '@/components/main/MainHeader.vue'
-import MainBodyList from '@/components/main/MainBodyList.vue'
+import MainHeader from '@/views/main/components/Header.vue'
+import MainBodyList from '@/views/main/components/BodyList.vue'
 
 export default {
   name: 'Main',
   components: {
     MainHeader,
-    MainBodyList,
+    MainBodyList
   },
   data() {
     return {
+      dialogVisible: false
+    }
+  },
+  methods: {
+    showSearchDialog(open) {
+      this.dialogVisible = open
     }
   }
 }
 </script>
 
 <style scoped>
-  .head {
+  .header {
     position: fixed;
     top: 0;
     width: 100%;
     height: 80px;
     z-index: 1000;
+    background-color: white;
+    padding: 10px;
   }
   .content {
     padding-top: 80px;

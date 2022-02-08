@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div>
     <div class="logo">
       <img src="@/assets/title_logo.png" class="title-img">
     </div>
@@ -11,7 +11,7 @@
         start-placeholder="체크인"
         end-placeholder="체크아웃">
       </el-date-picker>
-      <a-round-btn label="필터" size="md" color="red" icon="el-icon-s-operation" style="margin-left: 10px;" />
+      <el-button round type="danger" icon="el-icon-s-operation" style="margin-left: 10px;" @click="showSearchDialog">필터</el-button>
     </div>
     <div class="user-menu">
       <div>
@@ -20,22 +20,24 @@
   </div>
 </template>
 
+
 <script>
   export default {
     name: 'main-header',
     data() {
       return {
-        dataValue: ''
+        dataValue: '',
+      }
+    },
+    methods: {
+      showSearchDialog() {
+        this.$emit('searchDialog', true)
       }
     }
   }
 </script>
 
 <style scoped>
-  .header {
-    padding: 10px;
-    background-color: white;
-  }
   .select-date {
     text-align: center;
     margin-top: 10px;
