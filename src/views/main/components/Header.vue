@@ -31,7 +31,7 @@
     },
     methods: {
       showSearchDialog() {
-        this.$emit('searchDialog', true)
+        this.$emit('searchDialog')
       }
     }
   }

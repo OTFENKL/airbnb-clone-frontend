@@ -16,39 +16,37 @@
         </el-col>
       </el-row>
     </div>
-
-    <el-dialog
-      title="Tips"
-      :visible.sync="dialogVisible"
-      width="30%"
-      :before-close="handleClose">
-      <span>This is a message</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogVisible = false">Confirm</el-button>
-      </span>
-    </el-dialog>
+    <search-dialog :param="popupOptions"></search-dialog>    
   </div>
 </template>
 
 <script>
 import MainHeader from '@/views/main/components/Header.vue'
 import MainBodyList from '@/views/main/components/BodyList.vue'
+import SearchDialog from '@/views/main/components/SearchDialog.vue'
 
 export default {
   name: 'Main',
   components: {
     MainHeader,
-    MainBodyList
+    MainBodyList,
+    SearchDialog
   },
   data() {
     return {
-      dialogVisible: false
+      popupOptions: {
+        target: null,
+        title: '필터 적용하기',
+        visible: false,
+        width: '40%',
+        param: {},
+        closeCallback: null,
+      },
     }
   },
   methods: {
-    showSearchDialog(open) {
-      this.dialogVisible = open
+    showSearchDialog() {
+      this.popupOptions.visible = true;
     }
   }
 }
@@ -101,5 +99,15 @@ export default {
   .button {
     padding: 5px;
     float: right;
+  }
+  .options {
+    vertical-align: middle;
+  }
+  .option {
+    float: right;
+  }
+  el-dialog {
+    height: 600px;
+    overflow: auto;
   }
 </style>
