@@ -2,27 +2,29 @@
   <div>
     <el-row v-for="(o) in 8" :key="o">
       <el-col>
-        <el-card>
-          <el-row>
-            <el-col :span="9">
-              <div class="card-item">
-                <el-carousel trigger="click" height="200px" :autoplay="false">
-                  <el-carousel-item v-for='image in roomImages' :key='image'>
-                    <img :src="image" class="image">
-                  </el-carousel-item>
-                </el-carousel>
-              </div>
-            </el-col>
-            <el-col :span="15">
-              <div class="description">
-                <span class="simple_desc small">광화문/경복궁의 전원주택 전체</span>
-                <span class="title label">New Open [한옥독채]서촌, 경복궁 인근 포근한 한옥 '서촌 아지트'</span>
-                <span class="structure small">최대 인원 4명 . 침실 2개 . 침대 4개 . 욕실 1개</span>
-                <span class="options small">주방 . 무선 인터넷 . 난방 . 셀프 체크인</span>
-              </div>
-            </el-col>
-          </el-row>
-        </el-card>
+        <router-link to="/detail">
+          <el-card>
+            <el-row>
+              <el-col :span="9">
+                <div class="card-item">
+                  <el-carousel trigger="click" height="200px" :autoplay="false">
+                    <el-carousel-item v-for='image in roomImages' :key='image'>
+                      <img :src="image" class="image">
+                    </el-carousel-item>
+                  </el-carousel>
+                </div>
+              </el-col>
+              <el-col :span="15">
+                <div class="description">
+                  <span class="simple_desc small">광화문/경복궁의 전원주택 전체</span>
+                  <span class="title label">New Open [한옥독채]서촌, 경복궁 인근 포근한 한옥 '서촌 아지트'</span>
+                  <span class="structure small">최대 인원 4명 . 침실 2개 . 침대 4개 . 욕실 1개</span>
+                  <span class="options small">주방 . 무선 인터넷 . 난방 . 셀프 체크인</span>
+                </div>
+              </el-col>
+            </el-row>
+          </el-card>
+        </router-link>
       </el-col>
     </el-row>
     <el-pagination class="pagination" layout="prev, pager, next" :total="pagination.total" :page-size="pagination.limit"></el-pagination>
@@ -48,6 +50,9 @@
           limit: 5
         }
       }
+    },
+    methods: {
+      
     }
   }
 </script>

@@ -1,29 +1,31 @@
 <template>
-  <div>
-    <div class="header">
+  <el-container>
+    <el-header>
       <main-header @searchDialog="showSearchDialog" />
-    </div>
-    <div class="content">
-      <el-row>
-        <el-col :span="14">
-          <div class="list">
-            <main-body-list />
-          </div>
-        </el-col>
-        <el-col :span="10">
-          <div class="map">
-          </div>
-        </el-col>
-      </el-row>
-    </div>
-    <search-dialog :param="popupOptions"></search-dialog>    
-  </div>
+    </el-header>
+    <el-main>
+      <div class="content">
+        <el-row>
+          <el-col :span="14">
+            <div class="list">
+              <main-body-list />
+            </div>
+          </el-col>
+          <el-col :span="10">
+            <div class="map">
+            </div>
+          </el-col>
+        </el-row>
+      </div>
+    </el-main>
+    <search-dialog :param="popupOptions"></search-dialog>   
+  </el-container>
 </template>
 
 <script>
-import MainHeader from '@/views/main/components/Header.vue'
-import MainBodyList from '@/views/main/components/BodyList.vue'
-import SearchDialog from '@/views/main/components/SearchDialog.vue'
+import MainHeader from '@/views/air_main/components/Header.vue'
+import MainBodyList from '@/views/air_main/components/BodyList.vue'
+import SearchDialog from '@/views/air_main/components/SearchDialog.vue'
 
 export default {
   name: 'Main',
@@ -38,7 +40,7 @@ export default {
         target: null,
         title: '필터 적용하기',
         visible: false,
-        width: '40%',
+        width: '50%',
         param: {},
         closeCallback: null,
       },
@@ -53,17 +55,17 @@ export default {
 </script>
 
 <style scoped>
-  .header {
+  .el-header {
     position: fixed;
-    top: 0;
-    width: 100%;
-    height: 80px;
     z-index: 1000;
     background-color: white;
-    padding: 10px;
+    height: 70px;
+    top: 0;
+    left: 0;
+    right: 0;
   }
-  .content {
-    padding-top: 80px;
+  .el-main {
+    margin-top: 60px;
   }
   .list {
     width: 100%;
