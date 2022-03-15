@@ -1,33 +1,36 @@
 <template>
   <div>
-    <el-row v-for="(o) in 8" :key="o">
+    <el-row v-for="(room, i) in roomList" :key="i">
       <el-col>
-        <router-link to="/detail">
-          <el-card>
-            <el-row>
-              <el-col :span="9">
-                <div class="card-item">
-                  <el-carousel trigger="click" height="200px" :autoplay="false">
-                    <el-carousel-item v-for='image in roomImages' :key='image'>
-                      <img :src="image" class="image">
-                    </el-carousel-item>
-                  </el-carousel>
-                </div>
-              </el-col>
+        <el-card>
+          <el-row>
+            <el-col :span="9">
+              <div class="card-item">
+                <el-carousel trigger="click" height="200px" :autoplay="false">
+                  <el-carousel-item v-for='image in roomImages' :key='image'>
+                    <img :src="image" class="image">
+                  </el-carousel-item>
+                </el-carousel>
+              </div>
+            </el-col>
+            <router-link to="/detail">
               <el-col :span="15">
                 <div class="description">
-                  <span class="simple_desc small">광화문/경복궁의 전원주택 전체</span>
-                  <span class="title label">New Open [한옥독채]서촌, 경복궁 인근 포근한 한옥 '서촌 아지트'</span>
+                  <span class="simple_desc small">{{room.type}}</span>
+                  <span class="title label">{{room.name}}</span>
                   <span class="structure small">최대 인원 4명 . 침실 2개 . 침대 4개 . 욕실 1개</span>
                   <span class="options small">주방 . 무선 인터넷 . 난방 . 셀프 체크인</span>
                 </div>
+                <div class="rating">
+                  <span><i class="el-icon-star-on" style="color: red"></i><strong>{{room.rating}}</strong> (후기 {{room.reviewCount}}개)</span>
+                </div>
               </el-col>
-            </el-row>
-          </el-card>
-        </router-link>
+            </router-link>
+          </el-row>
+        </el-card>
       </el-col>
     </el-row>
-    <el-pagination class="pagination" layout="prev, pager, next" :total="pagination.total" :page-size="pagination.limit"></el-pagination>
+    <el-pagination class="pagination" layout="prev, pager, next" :total="pagination.total" :limit.sync="pagination.limit" @current-change="handleCurrentChange"></el-pagination>
   </div>
 </template>
 
@@ -45,14 +48,36 @@
           require(`@/assets/rooms/image4.png`),
         ],
         pagination: {
-          total: 8,
-          page: 1,
+          total: 100,
           limit: 5
-        }
+        },
+        roomList: [],
+        currPage: 0
       }
     },
     methods: {
-      
+      getData() {
+        var _this = this;
+        this.$axios
+          .get('/accommodations?page=' + _this.currPage + '&size=20')
+          .then((res) => {
+            _this.roomList = res.data.accommodationResList;
+          })
+          .catch(e => {
+            console.log(e);
+          })
+      },
+      handleCurrentChange(e) {
+        this.currPage = e - 1;
+        this.getData();
+        this.scrollToTop();
+      },
+      scrollToTop() {
+        window.scrollTo(0, 0);
+      }
+    },
+    created() {
+      this.getData();
     }
   }
 </script>
@@ -82,6 +107,12 @@
   .description {
     margin-left: 5px;
     width: 100%;
+  }
+
+  .rating {
+    position: absolute;
+    bottom: 0;
+    margin-left: 5px;
   }
 
   .small, .label {

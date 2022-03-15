@@ -20,6 +20,8 @@ import './utils/error-log' // error log
 
 import * as filters from './filters' // global filters
 
+import backendConfig from './js/backendConfig'
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -30,6 +32,13 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 // import custom vue component
 import AButton from '@/components/common/AButton';
 import ARoundButton from '@/components/common/ARoundButton';
+
+import axios from 'axios'
+import AxiosPlugin from 'vue-axios-cors'
+
+Vue.use(AxiosPlugin)
+axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded'
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
 
 Vue.component(AButton.name, AButton);
 Vue.component(ARoundButton.name, ARoundButton);
@@ -57,7 +66,9 @@ Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
 
-Vue.config.productionTip = false
+Vue.prototype.$axios = axios;
+
+Vue.config.productionTip = false;
 
 new Vue({
   el: '#app',

@@ -18,7 +18,7 @@
         </el-row>
       </div>
     </el-main>
-    <search-dialog :param="popupOptions"></search-dialog>   
+    <search-dialog :param="popupOptions"></search-dialog>
   </el-container>
 </template>
 
